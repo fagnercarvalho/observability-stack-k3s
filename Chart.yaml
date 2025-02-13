@@ -1,0 +1,15 @@
+apiVersion: v2
+type: application
+name: lgtm-stack-k3s
+version: 0.35.0
+description: LGTM stack + OTel in k3s
+sources:
+  - https://github.com/fagnercarvalho/lgtm-stack-k3s
+maintainers:
+  - name: fagnercarvalho
+appVersion: "1.0.0"
+dependencies:
+  - name: opentelemetry-collector
+    version: 0.110.3
+    repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+    condition: opentelemetry-collector.enabled
