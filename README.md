@@ -60,6 +60,8 @@ helm --kubeconfig /etc/rancher/k3s/k3s.yaml uninstall observability-stack
 # Get Grafana password
 kubectl get secret --namespace default observability-stack-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 
+# Open Grafana at http://grafana.local using admin as username and the password from the previous command
+
 # Send test trace
 curl -X POST http://otel.local/v1/traces \
      -H "Content-Type: application/json" \
